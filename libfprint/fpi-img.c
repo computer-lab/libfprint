@@ -603,7 +603,7 @@ API_EXPORTED struct fp_minutia **fp_img_get_minutiae(struct fp_img *img,
  *
  * Returns: 0 on success, -1 on error.
  */
-API_EXPORTED int fp_minutia_get_coords(struct fp_minutia *minutia, int *coord_x, int *coord_y)
+API_EXPORTED int fp_minutia_get_coords(struct fp_minutia *minutia, int *coord_x, int *coord_y, int *ex, int *ey, int *coord_direction, double *reliability, int *type, int *appearing, int * feature_id)
 {
 	g_return_val_if_fail (minutia != NULL, -1);
 	g_return_val_if_fail (coord_x != NULL, -1);
@@ -611,6 +611,13 @@ API_EXPORTED int fp_minutia_get_coords(struct fp_minutia *minutia, int *coord_x,
 
 	*coord_x = minutia->x;
 	*coord_y = minutia->y;
+        *ex = minutia->ex;
+        *ey = minutia->ey;
+        *coord_direction = minutia->direction;
+        *reliability = minutia->reliability;
+        *type = minutia->type;
+        *appearing = minutia->appearing;
+        *feature_id = minutia->feature_id;
 
 	return 0;
 }

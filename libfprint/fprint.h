@@ -306,7 +306,7 @@ int fp_img_save_to_file(struct fp_img *img, char *path);
 void fp_img_standardize(struct fp_img *img);
 struct fp_img *fp_img_binarize(struct fp_img *img);
 struct fp_minutia **fp_img_get_minutiae(struct fp_img *img, int *nr_minutiae);
-int fp_minutia_get_coords(struct fp_minutia *minutia, int *coord_x, int *coord_y);
+int fp_minutia_get_coords(struct fp_minutia *minutia, int *coord_x, int *coord_y, int *ex, int *ey, int *coord_direction, double *reliability, int *type, int *appearing, int * feature_id);
 void fp_img_free(struct fp_img *img);
 
 /* Polling and timing */
